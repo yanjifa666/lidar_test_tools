@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<robot name="tf" xmlns:xacro="541274397@qq.com">
+  <xacro:property name="PI" value="3.1415926535897931" />
+
+  <link name="chassis_link"></link>
+
+  <link name="base_link"></link>
+  <joint name="base_link_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="chassis_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+
+  <link name="imu_link"> </link>
+  <joint name="imu_joint" type="fixed">
+    <parent link="chassis_link" />
+    <child link="imu_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <link name="lidar_link_left_front"> </link>
+  <joint name="lidar_joint_left_front" type="fixed">
+    <parent link="imu_link" />
+    <child link="lidar_link_left_front" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  
+  <link name="lidar_link_right_front"> </link>
+  <joint name="lidar_joint_right_front" type="fixed">
+    <parent link="imu_link" />
+    <child link="lidar_link_right_front" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <link name="lidar_link_mid_front"> </link>
+  <joint name="lidar_joint_mid_front" type="fixed">
+    <parent link="imu_link" />
+    <child link="lidar_link_mid_front" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <link name="laser_sensor_frame"> </link>
+  <joint name="laser_joint" type="fixed">
+    <parent link="imu_link" />
+    <child link="laser_sensor_frame" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <link name="navsat_link"> </link>
+  <joint name="navsat_joint" type="fixed">
+    <parent link="chassis_link" />
+    <child link="navsat_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+</robot>
